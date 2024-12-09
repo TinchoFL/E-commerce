@@ -16,20 +16,6 @@ export default function About() {
                 </Col>
             </Row>
 
-            <Row className="mb-5">
-                <Col>
-                    <p className="fs-5 text-muted mb-3">Integrantes:</p>
-                    <ul className="list-unstyled fs-5">
-                        <li>Alexis Daniel Guttlein Gareis</li>
-                        <li>Joaquin Lonardi</li>
-                        <li>Juan Cruz Robledo Puch</li>
-                        <li>Martin Fernandez Lahore</li>
-                        <li>Tomas Benitez Potochek</li>
-                        <li>Agustín Braida</li>
-                    </ul>
-                </Col>
-            </Row>
-
             <Row>
                 <Col>
                     <Button variant="primary" as={Link} to="/sign-up" className="me-3" size="lg">

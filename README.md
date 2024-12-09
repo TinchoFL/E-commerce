@@ -1,30 +1,19 @@
 
 
-# TP Ingeniería del Software 1
-
-## Integrantes:
-- Agustín Braida
-- Alexis Daniel Guttlein Gareis
-- Joaquin Lonardi
-- Juan Cruz Robledo Puch
-- Martin Fernandez Lahore
-- Tomas Benitez Potochek
+# Software Engineering 1 Assignment
 
 
-
-
-
-
-Para levantar docker:
+To start Docker:
+    
 ```bash
 docker compose up -d --build
 ```
 
-Front corriendo en: http://localhost:3000/ (Admin default: root@root.com, Pass: root)
+Frontend running at: http://localhost:3000/ (Default Admin: root@root.com, Password: root)
 
-Para ver base de datos: http://localhost:20003/ (User: root, Pass: root)
+To view the database: http://localhost:20003/ (User: root, Password: root)
 
-Back corriendo en: http://localhost:8080/
+Backend running at: http://localhost:8080/
 
-documentación de endpoints en: http://localhost:8080/swagger-ui/index.html  
-tabien en forma json (OpenAPI): http://localhost:8080/v3/api-docs 
+Endpoint documentation available at: http://localhost:8080/swagger-ui/index.html
+Also available in JSON format (OpenAPI): http://localhost:8080/v3/api-docs
