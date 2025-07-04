@@ -9,7 +9,9 @@ RUN mvn package -DskipTests
 
 FROM eclipse-temurin:17-jre AS deploy
 WORKDIR /home/app
+
 COPY --from=build /home/app/target/product-example-0.0.1-SNAPSHOT.jar /home/app/product-example-0.0.1-SNAPSHOT.jar
-COPY ./src/main/resources /home/app/back/src/main/resources
+ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /home/app/wait-for-it.sh
+RUN chmod +x /home/app/wait-for-it.sh
 EXPOSE 9500
-ENTRYPOINT ["java","-jar","/home/app/product-example-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["./wait-for-it.sh", "mariadb:3306", "--", "java", "-jar", "/home/app/product-example-0.0.1-SNAPSHOT.jar"]
