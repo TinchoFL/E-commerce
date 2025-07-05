@@ -13,11 +13,12 @@ WORKDIR /home/app
 # Copiamos el jar generado
 COPY --from=build /home/app/target/product-example-0.0.1-SNAPSHOT.jar /home/app/product-example-0.0.1-SNAPSHOT.jar
 
-# Copiamos los scripts
-COPY wait-for-it.sh entrypoint.sh ./
-RUN chmod +x wait-for-it.sh entrypoint.sh
+
 
 EXPOSE 8080
 
 # Usamos entrypoint.sh para esperar a la DB antes de lanzar Spring Boot
+# Copiamos los scripts
+COPY wait-for-it.sh entrypoint.sh ./
+RUN chmod +x wait-for-it.sh entrypoint.sh
 ENTRYPOINT ["./entrypoint.sh"]
