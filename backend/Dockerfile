@@ -11,7 +11,10 @@ FROM eclipse-temurin:17-jre AS deploy
 WORKDIR /home/app
 
 COPY --from=build /home/app/target/product-example-0.0.1-SNAPSHOT.jar /home/app/product-example-0.0.1-SNAPSHOT.jar
-ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh /home/app/wait-for-it.sh
-RUN chmod +x /home/app/wait-for-it.sh
+
+COPY wait-for-it.sh entrypoint.sh /home/app/
+RUN chmod +x /home/app/wait-for-it.sh /home/app/entrypoint.sh
+
 EXPOSE 9500
-ENTRYPOINT ["./wait-for-it.sh", "mariadb:3306", "--", "java", "-jar", "/home/app/product-example-0.0.1-SNAPSHOT.jar"]
+
+ENTRYPOINT ["/home/app/entrypoint.sh"]
