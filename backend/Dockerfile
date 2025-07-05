@@ -10,11 +10,14 @@ RUN mvn package -DskipTests
 FROM eclipse-temurin:17-jre AS deploy
 WORKDIR /home/app
 
+# Copiamos el jar generado
 COPY --from=build /home/app/target/product-example-0.0.1-SNAPSHOT.jar /home/app/product-example-0.0.1-SNAPSHOT.jar
 
-COPY wait-for-it.sh entrypoint.sh /home/app/
-RUN chmod +x /home/app/wait-for-it.sh /home/app/entrypoint.sh
+# Copiamos los scripts
+COPY wait-for-it.sh entrypoint.sh ./
+RUN chmod +x wait-for-it.sh entrypoint.sh
 
-EXPOSE 9500
+EXPOSE 8080
 
-ENTRYPOINT ["/home/app/entrypoint.sh"]
+# Usamos entrypoint.sh para esperar a la DB antes de lanzar Spring Boot
+ENTRYPOINT ["./entrypoint.sh"]
