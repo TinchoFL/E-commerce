@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "attribute", uniqueConstraints = @UniqueConstraint(columnNames = {"attributeName", "value"}))
+@Table(name = "attribute", uniqueConstraints = @UniqueConstraint(columnNames = {"attributeName", "attrValue"}))
 public class Attribute {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
