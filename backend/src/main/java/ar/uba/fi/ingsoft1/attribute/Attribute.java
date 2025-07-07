@@ -16,6 +16,8 @@ public class Attribute {
     private Long id;
 
     private String attributeName;
+
+    @Column(name = "attrValue")
     private String value;
 
     public Attribute(String attributeName, String value){
