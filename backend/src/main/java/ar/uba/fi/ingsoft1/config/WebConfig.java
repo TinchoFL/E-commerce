@@ -1,4 +1,4 @@
-package main.java.ar.uba.fi.ingsoft1.config;
+package ar.uba.fi.ingsoft1.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
