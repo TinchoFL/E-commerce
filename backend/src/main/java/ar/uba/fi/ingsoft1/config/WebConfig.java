@@ -12,11 +12,11 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://mfl-ecommerce.vercel.app/")
-                        .allowedMethods("*")
-                        .allowedHeaders("*");
+                        .allowedOrigins("https://mfl-ecommerce.vercel.app")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
 }
-
